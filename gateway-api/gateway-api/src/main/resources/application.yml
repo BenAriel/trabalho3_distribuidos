@@ -1,0 +1,20 @@
+server:
+  port: 9090
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: user-api
+          uri: http://localhost:50001
+          predicates:
+            - Path=/api/usuarios/**
+
+        - id: product-api
+          uri: http://localhost:50002
+          predicates:
+            - Path=/api/produtos/**
+
+        - id: shopping-api
+          uri: http://localhost:50003
+          predicates:
+            - Path=/api/compras/**
